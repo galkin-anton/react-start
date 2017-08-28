@@ -2,13 +2,14 @@
   "name": "react-start",
   "version": "1.0.0",
   "description": "for me",
-  "main": "index.jsx",
+  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/galkin-anton/react-start.git"
+    "url": "https://github.com/galkin-anton/react-start.git"
   },
   "keywords": [
     "react"
@@ -18,5 +19,14 @@
   "bugs": {
     "url": "https://github.com/galkin-anton/react-start/issues"
   },
-  "homepage": "https://github.com/galkin-anton/react-start#readme"
+  "homepage": "https://github.com/galkin-anton/react-start#readme",
+  "devDependencies": {
+    "@types/express": "^4.0.37",
+    "@types/react": "^16.0.5",
+    "@types/react-dom": "^15.5.4",
+    "express": "^4.15.4",
+    "husky": "^0.14.3",
+    "lint-staged": "^4.0.4",
+    "prettier": "^1.5.3"
+  }
 }
