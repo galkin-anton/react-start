@@ -1,0 +1,22 @@
+{
+  "name": "react-start",
+  "version": "1.0.0",
+  "description": "for me",
+  "main": "index.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/galkin-anton/react-start.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "GALKIN_AB",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/galkin-anton/react-start/issues"
+  },
+  "homepage": "https://github.com/galkin-anton/react-start#readme"
+}
