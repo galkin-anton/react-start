@@ -1,4 +1,8 @@
+var News = React.createClass({
+  render: fun
+});
+var App = React.createClass({});
 ReactDOM.render(
-    React.createElement('h1',{name:"Hello"},'Привет REACT'),
-    document.getElementById('root')
+  <App/>,
+  document.getElementById('root')
 );
