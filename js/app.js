@@ -16,21 +16,35 @@ var myNews = [
     text: 'News 3'
   }
 ];
+// myNews = [];
 
-var News = React.createClass({
-  render: function() {
+class Article extends React.Component {
+  render() {
+    let author = this.props.data.author;
+    let text = this.props.data.text;
+
+    return (
+      <div className="article">
+        <p className="news__author">
+          {author}:
+        </p>
+        <p className="news__text">
+          {text}
+        </p>
+      </div>
+    );
+  }
+}
+
+class News extends React.Component {
+  render() {
     let data = this.props.data;
     let template;
     if (data.length > 0) {
       template = data.map(function(news, index) {
         return (
           <div key={index}>
-            <p className="news__author">
-              {news.author}:
-            </p>
-            <p className="news__text">
-              {news.text}
-            </p>
+            <Article data={news} />
           </div>
         );
       });
@@ -39,32 +53,32 @@ var News = React.createClass({
     }
 
     return (
-      <div>
+      <div className="news">
         {template}
-        <strong className={data.length > 0 ? '' : 'none'}>
+        <strong className={'news__count ' + (data.length > 0 ? '' : 'none')}>
           Всего новостей {data.length}
         </strong>
       </div>
     );
   }
-});
+}
 
-var Comments = React.createClass({
-  render: function() {
+class Comments extends React.Component {
+  render() {
     return <div className="comments">Комментариев нет</div>;
   }
-});
+}
 
-var App = React.createClass({
-  render: function() {
+class App extends React.Component {
+  render() {
     return (
       <div className="app">
-        HI! I am react component!
+        <h3>Новости</h3>
         <News data={myNews} />
         <Comments />
       </div>
     );
   }
-});
+}
 
 ReactDOM.render(<App />, document.getElementById('root'));
