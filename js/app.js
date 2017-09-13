@@ -43,13 +43,18 @@ class Article extends React.Component {
     let { author, text, bigText } = this.props.data;
     return (
       <div className="article">
-        <p className="news__author">{author}:</p>
-        <p className="news__text">{text}</p>
+        <p className="news__author">
+          {author}:
+        </p>
+        <p className="news__text">
+          {text}
+        </p>
         <a href="#" className="news__readmore" onClick={this.click}>
-          {' '}
-          Подробнее{' '}
+          {' '}Подробнее{' '}
         </a>
-        <p className="news__big-text">{bigText}</p>
+        <p className="news__big-text">
+          {bigText}
+        </p>
         <p className={this.state.visible ? '' : 'none'}>
           Это доплнительная информация
         </p>
@@ -70,6 +75,10 @@ class News extends React.Component {
     super(props);
   }
 
+  componentWillReceiveProps() {
+    console.log('update');
+  }
+
   render() {
     let data = this.props.data;
     let template;
@@ -88,7 +97,7 @@ class News extends React.Component {
     return (
       <div className="news">
         {template}
-        <strong className={'news__count ' + (data.length > 0 ? '' : 'none')}>
+        <strong className={'news__count' + (data.length > 0 ? '' : ' none')}>
           Всего новостей {data.length}
         </strong>
       </div>
