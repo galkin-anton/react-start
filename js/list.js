@@ -16,6 +16,17 @@ class List extends React.Component {
   checkChange(e) {
     this.setState({ submitDisabled: !e.target.checked });
   }
+
+  checkInput(v, e) {
+    let [_v, _c] = [e.target.value, this.refs.check.checked];
+
+    if (_v.trim().length == 0) {
+      this.setState({ submitDisabled: true });
+    } else if (_c) {
+      this.setState({ submitDisabled: false });
+    }
+  }
+
   add(e) {
     e.preventDefault();
     let element = e.target.listValue;
@@ -25,7 +36,7 @@ class List extends React.Component {
     element.focus();
 
     myNews.push({ author: 'Galkin_AB', bigText: value, text: value });
-    console.log(myNews);
+    // console.log(myNews);
 
     this.setState(ps => {
       return { list: ps.list.concat(value) };
@@ -38,10 +49,16 @@ class List extends React.Component {
       <div>
         <Ul list={list} />
         <form onSubmit={this.add}>
-          <input type="text" name="listValue" ref="listValue" />
+          <input
+            type="text"
+            name="listValue"
+            ref="listValue"
+            onChange={this.checkInput.bind(this, 'vvv')}
+          />
           <input
             type="submit"
             value="add"
+            ref="check"
             disabled={this.state.submitDisabled}
           />
           <input type="checkbox" onChange={this.checkChange} />
