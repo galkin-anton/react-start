@@ -1,3 +1,5 @@
+window.ee = new EventEmitter();
+
 var myNews = [
   {
     author: 'Galkin_AB',
@@ -116,11 +118,25 @@ class Comments extends React.Component {
 }
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { news: myNews };
+  }
+
+  componentDidMount() {
+    let _this = this;
+    window.ee.addListener('News.add', item => {
+      let nextNews = [item].concat(_this.state.news);
+      _this.setState({ news: nextNews });
+      console.log('1');
+    });
+  }
+
   render() {
     return (
       <div className="app">
         <h3>Новости</h3>
-        <News data={myNews} />
+        <News data={this.state.news} />
         {/*data={myNews}*/}
         <Comments />
       </div>

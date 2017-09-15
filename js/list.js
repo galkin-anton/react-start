@@ -35,7 +35,11 @@ class List extends React.Component {
     element.value = '';
     element.focus();
 
-    myNews.push({ author: 'Galkin_AB', bigText: value, text: value });
+    window.ee.emit('News.add', {
+      author: 'Galkin_AB',
+      bigText: value,
+      text: value
+    });
     // console.log(myNews);
 
     this.setState(ps => {
